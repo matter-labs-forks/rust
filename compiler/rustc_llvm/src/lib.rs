@@ -186,4 +186,11 @@ pub fn initialize_available_targets() {
         LLVMInitializeBPFAsmPrinter,
         LLVMInitializeBPFAsmParser
     );
+    init_target!(
+        llvm_component = "syncvm",
+        LLVMInitializeSyncVMTargetInfo,
+        LLVMInitializeSyncVMTarget,
+        LLVMInitializeSyncVMTargetMC,
+        LLVMInitializeSyncVMAsmPrinter
+    );
 }

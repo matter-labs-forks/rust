@@ -1213,7 +1213,7 @@ pub(super) fn build_target_config(
         early_warn(opts.error_format, &warning)
     }
 
-    if !matches!(target.pointer_width, 16 | 32 | 64) {
+    if !matches!(target.pointer_width, 16 | 32 | 64 | 256) {
         early_error(
             opts.error_format,
             &format!(
