@@ -1030,7 +1030,7 @@ supported_targets! {
 
     ("mips64-openwrt-linux-musl", mips64_openwrt_linux_musl),
 
-    ("syncvm", syncvm_unknown_unknown),
+    ("syncvm-unknown-unknown", syncvm_unknown_unknown),
 }
 
 /// Cow-Vec-Str: Cow<'static, [Cow<'static, str>]>

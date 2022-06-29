@@ -2,8 +2,8 @@ use crate::spec::{Target, TargetOptions, Endian};
 
 pub fn target() -> Target {
     let base = TargetOptions {
-        cpu: "".into(),
-        os: "".into(),
+        cpu: "unknown".into(),
+        os: "unknown".into(),
         env: "".into(),
         max_atomic_width: Some(256),
         endian: Endian::Big,
@@ -11,7 +11,7 @@ pub fn target() -> Target {
     };
 
     Target {
-        llvm_target: "syncvm".into(),
+        llvm_target: "syncvm-unknown-unknown".into(),
         pointer_width: 256,
         data_layout: "E-p:256:256-i8:256:256:256-i256:256:256-S32-a:256:256"
             .into(),
