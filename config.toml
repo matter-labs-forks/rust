@@ -104,14 +104,13 @@ ninja = false
 # likely, teach rustc about the C ABI of the target. Get in touch with the
 # Rust team and file an issue if you need assistance in porting!
 #targets = "AArch64;ARM;BPF;Hexagon;MSP430;Mips;NVPTX;PowerPC;RISCV;Sparc;SystemZ;WebAssembly;X86"
-targets = "X86"
+targets = "X86;SyncVM"
 
 # LLVM experimental targets to build support for. These targets are specified in
 # the same format as above, but since these targets are experimental, they are
 # not built by default and the experimental Rust compilation targets that depend
 # on them will not work unless the user opts in to building them.
-#experimental-targets = "AVR;M68k"
-experimental-targets = "SyncVM"
+experimental-targets = ""
 
 # Cap the number of parallel linker invocations when compiling LLVM.
 # This can be useful when building LLVM with debug info, which significantly
@@ -228,7 +227,7 @@ target = ["x86_64-unknown-linux-gnu"]
 # Flag to specify whether any documentation is built. If false, rustdoc and
 # friends will still be compiled but they will not be used to generate any
 # documentation.
-#docs = true
+docs = false
 
 # Flag to specify whether CSS, JavaScript, and HTML are minified when
 # docs are generated. JSON is always minified, because it's enormous,
@@ -285,7 +284,7 @@ target = ["x86_64-unknown-linux-gnu"]
 # all extended tools except `rust-demangler`, unless the target is also being
 # built with `profiler = true`. If chosen tool failed to build the installation
 # fails. If `extended = false`, this option is ignored.
-#tools = ["cargo", "rls", "clippy", "rustfmt", "analysis", "src"] # + "rust-demangler" if `profiler`
+tools = [] # + "rust-demangler" if `profiler`
 
 # Verbosity level: 0 == not verbose, 1 == verbose, 2 == very verbose
 #verbose = 0
@@ -336,7 +335,7 @@ target = ["x86_64-unknown-linux-gnu"]
 [install]
 
 # Instead of installing to /usr/local, install to this path instead.
-#prefix = "/home/hedgar/opt/rustc-zkevm"
+prefix = "/home/hedgar/opt/rustc"
 
 # Where to install system configuration files
 # If this is a relative path, it will get installed in `prefix` above
@@ -579,7 +578,7 @@ target = ["x86_64-unknown-linux-gnu"]
 # LLD will not be used if we're cross linking.
 #
 # Explicitly setting the linker for a target will override this option when targeting MSVC.
-use-lld = true
+#use-lld = true
 
 # Indicates whether some LLVM tools, like llvm-objdump, will be made available in the
 # sysroot.
@@ -671,7 +670,7 @@ cxx = "clang++"
 # Path to the `llvm-config` binary of the installation of a custom LLVM to link
 # against. Note that if this is specified we don't compile LLVM at all for this
 # target.
-#llvm-config = <none> (path)
+#llvm-config = "/home/hedgar/src/rust/build/x86_64-unknown-linux-gnu/llvm/build/bin/llvm-config"
 
 # Normally the build system can find LLVM's FileCheck utility, but if
 # not, you can specify an explicit file name for it.
