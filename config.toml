@@ -92,7 +92,7 @@ assertions = true
 #static-libstdcpp = true
 
 # Whether to use Ninja to build LLVM. This runs much faster than make.
-ninja = true
+ninja = false
 
 # LLVM targets to build support for.
 # Note: this is NOT related to Rust compilation targets. However, as Rust is
@@ -148,7 +148,7 @@ experimental-targets = "SyncVM"
 #use-libcxx = false
 
 # The value specified here will be passed as `-DLLVM_USE_LINKER` to CMake.
-#use-linker = <none> (path)
+use-linker = "lld"
 
 # Whether or not to specify `-DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=YES`
 #allow-old-toolchain = false
@@ -199,7 +199,7 @@ build = "x86_64-unknown-linux-gnu"
 # be bootstrapped from the build triple themselves.
 #
 # Defaults to just the build triple.
-host = ["x86_64-unknown-linux-gnu", "syncvm"]
+host = ["x86_64-unknown-linux-gnu"]
 
 # Which triples to build libraries (core/alloc/std/test/proc_macro) for. Each of
 # these triples will be bootstrapped from the build triple themselves.
@@ -207,7 +207,7 @@ host = ["x86_64-unknown-linux-gnu", "syncvm"]
 # Defaults to `host`. If you set this explicitly, you likely want to add all
 # host triples to this list as well in order for those host toolchains to be
 # able to compile programs for their native target.
-#target = ["x86_64-unknown-linux-gnu"] (as an example)
+target = ["x86_64-unknown-linux-gnu"]
 
 # Use this directory to store build artifacts.
 # You can use "$ROOT" to indicate the root of the git repository.
@@ -579,7 +579,7 @@ host = ["x86_64-unknown-linux-gnu", "syncvm"]
 # LLD will not be used if we're cross linking.
 #
 # Explicitly setting the linker for a target will override this option when targeting MSVC.
-#use-lld = false
+use-lld = true
 
 # Indicates whether some LLVM tools, like llvm-objdump, will be made available in the
 # sysroot.
@@ -647,12 +647,12 @@ host = ["x86_64-unknown-linux-gnu", "syncvm"]
 # default value is platform specific, and if not specified it may also depend on
 # what platform is crossing to what platform.
 # See `src/bootstrap/cc_detect.rs` for details.
-#cc = "cc" (path)
+cc = "clang"
 
 # C++ compiler to be used to compile C++ code (e.g. LLVM and our LLVM shims).
 # This is only used for host targets.
 # See `src/bootstrap/cc_detect.rs` for details.
-#cxx = "c++" (path)
+cxx = "clang++"
 
 # Archiver to be used to assemble static libraries compiled from C/C++ code.
 # Note: an absolute path should be used, otherwise LLVM build will break.

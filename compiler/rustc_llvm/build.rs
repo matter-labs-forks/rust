@@ -149,6 +149,7 @@ fn main() {
         "hexagon",
         "riscv",
         "bpf",
+        "syncvm",
     ];
 
     let required_components = &[

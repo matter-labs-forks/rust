@@ -2,7 +2,7 @@ use crate::spec::{Target, TargetOptions, Endian};
 
 pub fn target() -> Target {
     let base = TargetOptions {
-        cpu: "syncvm".into(),
+        cpu: "".into(),
         os: "".into(),
         env: "".into(),
         max_atomic_width: Some(256),

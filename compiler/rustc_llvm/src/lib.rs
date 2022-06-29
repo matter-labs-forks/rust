@@ -190,7 +190,7 @@ pub fn initialize_available_targets() {
         llvm_component = "syncvm",
         LLVMInitializeSyncVMTargetInfo,
         LLVMInitializeSyncVMTarget,
-        LLVMInitializeSyncVMTargetMC,
-        LLVMInitializeSyncVMAsmPrinter
+        LLVMInitializeSyncVMAsmPrinter,
+        LLVMInitializeSyncVMTargetMC
     );
 }
